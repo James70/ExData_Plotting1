@@ -24,16 +24,16 @@ RPOWER<- as.numeric(as.character(DT.study$Global_reactive_power)) ## Reactive Po
 
 
 ## Plot all 4 graphs on one page
-par(mfcol=c(2,2), mar=c(1,1,1,1), oma=c(1,1,1,1))   ## setup the quadrants for each graph
+par(mfcol=c(2,2), mar=c(4,4,1,1), oma=c(1,1,1,1))   ## setup the quadrants for each graph
 
 ## plot Global Active Power graph
-plot(time_final, GAP, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "Submetering Type: black=1, red=2, blue=3")
+plot(time_final, GAP, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
 
 ## plot Energy Submetering graph
-plot(time_final, SM1, type = "l", ylab = "Energy Sub-metering", xlab = "")
+plot(time_final, SM1, type = "l", ylab = "Energy Sub-metering", xlab = "Submetering Type: black=1, red=2, blue=3")
 points(time_final, SM2, type = "l", col='red')
 points(time_final, SM3, type = "l", col='blue')
-legend("topright", pch=15, border = 'white', col = c('black','red','blue'),legend = "" )
+## legend("topright", pch=15, border = 'white', col = c('black','red','blue'),legend = "" )
 
 ## plot Voltage vs Time graph
 plot(time_final, VOLTAGE, type = "l", ylab = "Voltage", xlab = "datetime")
@@ -44,5 +44,5 @@ plot(time_final, RPOWER, type = "l", bty="n", ylab = "Global_reactive_power", xl
 
 
 ## write the plot image to a graphics file
-dev.copy(png, file = "plot4.png") 
+dev.copy(png, file = "plot4(auto).png") 
 dev.off() ## close the PNG device!
